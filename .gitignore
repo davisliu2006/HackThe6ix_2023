@@ -1,0 +1,9 @@
+# folders
+.vscode/
+bin/
+*/bin/
+
+# files
+.DS_Store
+
+#extensions
