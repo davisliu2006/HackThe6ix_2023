@@ -2,6 +2,15 @@
 
 // DEFINITIONS
 
+// EVENTS
+
+void at_wall() {
+  
+}
+void at_intersection() {
+
+}
+
 // MAIN
 
 void setup() {
@@ -17,5 +26,7 @@ void loop() {
   }
   lmotor.set(1);
   int dist = sonar.ping_cm();
-  Serial.println(dist);
+  if (dist <= WALL_DIST) {
+    at_wall();
+  }
 }
