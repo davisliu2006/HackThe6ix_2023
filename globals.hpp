@@ -20,7 +20,7 @@ struct Motor {
   }
 };
 
-Struct Sound {
+struct Sound {
   int port;
 
   Sound() {}
@@ -45,7 +45,7 @@ NewPing sonar_l(6, 7);
 NewPing sonar_f(8, 9);
 NewPing sonar_r(10, 11);
 
-Sound alert(12);
+static Sound alert(12);
 
 // FUNCTIONS
 

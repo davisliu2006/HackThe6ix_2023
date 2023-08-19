@@ -46,7 +46,7 @@ void at_wall() {
     right_unwall();
   } else if (dist_l > WALL_DIST && dist_r > WALL_DIST) { // intersection
     at_intersection();
-  } else if (condition) { // dead end
+  } else if (dist_l <= WALL_DIST && dist_r <= WALL_DIST) { // dead end
     if (dist_l > dist_r) {
       left_unwall();
     } else {
@@ -75,9 +75,10 @@ void loop() {
 
   // process dist
   if (dist_f <= WALL_DIST) {
-    alert.play(440);
+    // alert.play(440);
+    tone(10, 440);
     at_wall();
   } else {
-    alert.stop();
+    // alert.stop();
   }
 }
