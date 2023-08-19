@@ -16,4 +16,6 @@ void loop() {
     Serial.println(input);
   }
   lmotor.set(1);
+  int dist = sonar.ping_cm();
+  Serial.println(dist);
 }

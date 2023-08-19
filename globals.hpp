@@ -24,3 +24,5 @@ struct Motor {
 
 Motor lmotor(6, 7);
 Motor rmotor(0, 1);
+
+NewPing sonar(10, 11);
