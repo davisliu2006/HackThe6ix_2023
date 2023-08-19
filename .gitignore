@@ -6,6 +6,7 @@ bin/
 firmware/
 include/
 src/test/
+my-app/node_modules
 
 # files
 .DS_Store
