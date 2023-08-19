@@ -20,3 +20,5 @@ temp.log
 
 # extensions
 *.ini
+package-lock.json
+package.json
