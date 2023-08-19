@@ -3,8 +3,7 @@
 // CLASSES
 
 struct Motor {
-  int port0;
-  int port1;
+  int port0, port1;
 
   Motor() {}
   Motor(int p0, int p1) {
@@ -22,7 +21,16 @@ struct Motor {
 
 // DEFINITIONS
 
-Motor lmotor(6, 7);
-Motor rmotor(0, 1);
+Motor lmotor(2, 3);
+Motor rmotor(4, 5);
 
-NewPing sonar(10, 11);
+NewPing sonar_l(6, 7);
+NewPing sonar_f(8, 9);
+NewPing sonar_r(10, 11);
+
+// FUNCTIONS
+
+char buf[9];
+const char* to_str(int x) {
+  return itoa(x, buf, 10);
+}
