@@ -19,10 +19,10 @@ function BasicExample() {
             <Nav.Link href="#home" style={{
                 paddingLeft: '70px'
             }}>Home</Nav.Link>
-            <Nav.Link href="#link" style={{
+            <Nav.Link href="#payments" style={{
                 paddingLeft: '70px'
             }}>Purchase</Nav.Link>
-            <Nav.Link href="#link" style={{
+            <Nav.Link href="#contact" style={{
                 paddingLeft: '70px'
             }}>Contact</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
