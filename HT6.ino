@@ -15,4 +15,5 @@ void loop() {
     char input = Serial.read();
     Serial.println(input);
   }
+  lmotor.set(1);
 }

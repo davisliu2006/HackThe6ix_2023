@@ -6,6 +6,7 @@ struct Motor {
   int port0;
   int port1;
 
+  Motor() {}
   Motor(int p0, int p1) {
     port0 = p0;
     port1 = p1;
@@ -21,5 +22,5 @@ struct Motor {
 
 // DEFINITIONS
 
-Motor lmotor(0, 1);
+Motor lmotor(6, 7);
 Motor rmotor(0, 1);
