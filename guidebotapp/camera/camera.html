@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Camera Test</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            #main {
+                margin: 50px 50px 50px 50px;
+            }
+            
+            #cam-vid {
+                float: left;
+                width: 720px; height: 720px;
+                border: solid 1px;
+            }
+            #info {
+                float: left;
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main">
+            <div id="cam-frame">
+                <p id="cam-load">Loading...</p>
+                <video autoplay playsinline id="cam-vid"></video>
+            </div>
+            <div id="info">
+                <p>Objects:</p>
+                <p id="info-list">
+                    Lorem Ipsum — 5m
+                </p>
+            </div>
+        </div>
+
+        <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+        <!-- Load the coco-ssd model. -->
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
+
+        <!-- Place your code in the script tag below. You can also use an external .js file -->
+        <script src="camera.js"></script>
+    </body>
+</html>
