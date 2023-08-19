@@ -75,6 +75,9 @@ void loop() {
 
   // process dist
   if (dist_f <= WALL_DIST) {
+    alert.play(440);
     at_wall();
+  } else {
+    alert.stop();
   }
 }
