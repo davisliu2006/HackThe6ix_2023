@@ -9,33 +9,22 @@ function BasicExample() {
         backgroundColor:"#3494f4"
     }}>
       <Container>
-        <Navbar.Brand href="#home" style={{
+        <Navbar.Brand href="/" style={{
             fontWeight:'bolder',
             fontSize:'30px'
         }}>GuideBot</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" style={{
+            <Nav.Link href="/" style={{
                 paddingLeft: '70px'
             }}>Home</Nav.Link>
-            <Nav.Link href="#payments" style={{
+            <Nav.Link href="/payments" style={{
                 paddingLeft: '70px'
             }}>Purchase</Nav.Link>
-            <Nav.Link href="#contact" style={{
+            <Nav.Link href="/contacts" style={{
                 paddingLeft: '70px'
             }}>Contact</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
