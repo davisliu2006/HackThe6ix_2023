@@ -13,7 +13,7 @@ GuideBot is currently still in an experimental phase in which its functionality 
 
 ## How we built it
 
-The experimental build of GuideBot was built on a breadboard circuit with Arduino Components and runs on the ESP32 microcontroller.
+The experimental build of GuideBot was built on a breadboard circuit with Arduino components and runs on the ESP32 microcontroller.
 
 The GuideBot web app was written using HTML, JavaScript, and Bootstrap 5. Object recognition was implemented using the Coco SSD model built on the TensorFlow neural network library.
 
