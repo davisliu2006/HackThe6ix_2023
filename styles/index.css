@@ -1,0 +1,50 @@
+#navfr {
+  background: #3494f4 !important;
+}
+#gb {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 3rem;
+  display: block;
+  color: #3494f4 !important;
+  padding-bottom: 4rem;
+}
+#banner-top-heading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+#banner-wrap {
+  position: relative;
+  padding: 6.25rem;
+  margin-bottom: 19rem;
+}
+#banner-img {
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  filter: brightness(40%);
+  width: 100%;
+  z-index: -1;
+}
+#banner-text {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  position: relative;
+  color: white;
+}
+#demo {
+  border-radius: 26px !important;
+  padding: 10px 25px !important;
+  margin-top: 20px !important;
+  margin-left: 10%;
+  font-size: 20px;
+}
+.sub-head {
+  color: #3494f4 !important;
+  font-size: 60px !important;
+  font-weight: 700 !important;
+}
