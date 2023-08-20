@@ -12,10 +12,20 @@
                 margin: 5% 5% 5% 5%;
             }
 
-            #canvas {
+            #canvas, #canvas-u {
                 position: absolute;
                 width: 768px; height: 480px;
                 border: solid 1px;
+            }
+
+            h1 {
+                font-size: 40px; text-align: center;
+            }
+            h3 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 20px;
             }
         </style>
         <script src="include.js"></script>
@@ -23,7 +33,15 @@
 
     <body>
         <div id="main">
+            <h1>Navigation Demo</h1>
+            <h3>Instructions:</h3>
+            <p>
+                WASD to move<br>
+                Hold and drag to draw walls<br>
+                Hold x to erase walls<br>
+            </p>
             <canvas id="canvas" width="768px" height="480px"></canvas>
+            <canvas id="canvas-u" width="768px" height="480px"></canvas>
         </div>
 
         <script src="demo.js"></script>

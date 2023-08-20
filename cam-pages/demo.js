@@ -1,9 +1,9 @@
 let maindiv = document.getElementById("main");
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
+let canvas_u = document.getElementById("canvas-u");
+let canvas_mp = document.getElementById("canvas");
 
-const SX = canvas.width;
-const SY = canvas.height;
+const SX = canvas_mp.width;
+const SY = canvas_mp.height;
 
 const BOTCLR = "#556677";
 const BOTSPD = 2;
@@ -27,32 +27,35 @@ function cis(rot) {
     return [Math.cos(rot), Math.sin(rot)];
 }
 
-function clear() {
+function clear(cvs) {
+    let ctx = cvs.getContext("2d");
     ctx.clearRect(0, 0, SX, SY);
 }
-function draw_line(x0, y0, x1, y1, stroke) {
+function draw_line(cvs, x0, y0, x1, y1, stroke, thick = 4) {
+    let ctx = cvs.getContext("2d");
     [x0, y0] = to_scrpos(x0, y0);
     [x1, y1] = to_scrpos(x1, y1);
     ctx.beginPath();
     ctx.moveTo(x0, y0);
     ctx.lineTo(x1, y1);
     ctx.strokeStyle = stroke;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = thick;
     ctx.stroke();
 }
 function draw_bot(x, y, rot = 0, size = 20) {
     let [x1, y1] = displace(x, y, size, 0, rot);
     let [x2, y2] = displace(x, y, -size, size*0.5, rot);
     let [x3, y3] = displace(x, y, -size, -size*0.5, rot);
-    draw_line(x1, y1, x2, y2, BOTCLR);
-    draw_line(x1, y1, x3, y3, BOTCLR);
-    draw_line(x2, y2, x3, y3, BOTCLR);
+    draw_line(canvas_u, x1, y1, x2, y2, BOTCLR);
+    draw_line(canvas_u, x1, y1, x3, y3, BOTCLR);
+    draw_line(canvas_u, x2, y2, x3, y3, BOTCLR);
 }
 
 // OJBECTS
 
 // map
 let map = Arr2d(SX, SY);
+let optimize = false;
 
 // bot
 class Obj {
@@ -101,10 +104,11 @@ document.onmousedown = function(e) {
 }
 document.onmouseup = function(e) {
     mousedn = false;
+    optimize = false;
 }
 document.onmousemove = function(e) {
-    mousex = e.pageX-canvas.offsetLeft-maindiv.offsetLeft;
-    mousey = e.pageY-canvas.offsetTop-maindiv.offsetTop;
+    mousex = e.pageX-canvas_mp.offsetLeft-maindiv.offsetLeft;
+    mousey = e.pageY-canvas_mp.offsetTop-maindiv.offsetTop;
     [mousex, mousey] = to_cartsn(mousex, mousey);
 }
 
@@ -114,7 +118,7 @@ function mark_walls() {
     for (let x = 0; x < SX; x++) {
         for (let y = 0; y < SY; y++) {
             if (map[x][y] == 1) {
-                draw_line(x, y, x+0.5, y+0.5, "#000000");
+                draw_line(canvas_mp, x, y, x+0.5, y+0.5, "#000000");
             }
         }
     }
@@ -149,9 +153,9 @@ function periodic() {
         if (dist0 > WALLDIST) {
             bot.x += dx; bot.y += dy;
         } else {
-            if (dist45-distn45 >= 10) {
+            if (dist45-distn45 >= 5) {
                 prefer_turn = 1;
-            } else if (dist45-distn45 <= -10) {
+            } else if (dist45-distn45 <= -5) {
                 prefer_turn = -1;
             }
             bot.rot += BOTRSPD*prefer_turn;
@@ -179,9 +183,25 @@ function periodic() {
     }
 
     // draw
-    clear();
+    clear(canvas_u);
     draw_bot(bot.x, bot.y, bot.rot);
-    mark_walls();
+    let [x0, y0] = displace(bot.x, bot.y, dist0, 0, bot.rot);
+    let [x90, y90] = displace(bot.x, bot.y, dist90, 0, bot.rot+rad(90));
+    let [xn90, yn90] = displace(bot.x, bot.y, distn90, 0, bot.rot-rad(90));
+    if (dist0 > WALLDIST) {
+        draw_line(canvas_u, bot.x, bot.y, x0, y0, "#108810", 2);
+    }
+    if (dist90 > WALLDIST) {
+        draw_line(canvas_u, bot.x, bot.y, x90, y90, "#108810", 2);
+    }
+    if (distn90 > WALLDIST) {
+        draw_line(canvas_u, bot.x, bot.y, xn90, yn90, "#108810", 2);
+    }
+    if (!optimize) {
+        clear(canvas_mp);
+        mark_walls();
+        optimize = true;
+    }
 }
 
 init();
