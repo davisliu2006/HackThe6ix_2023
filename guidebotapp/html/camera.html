@@ -9,16 +9,32 @@
                 margin: 50px 50px 50px 50px;
             }
             
+            /*camera frame*/
+            #cam-frame {
+                float: left; display: flex;
+                width: 720px; height: 720px;
+            }
             #cam-vid {
-                float: left;
+                position: absolute;
                 width: 720px; height: 720px;
                 border: solid 1px;
             }
+            #cam-markings {
+                position: absolute;
+                width: 720px; height: 720px;
+            }
+            .cam-marking {
+                position: absolute;
+                border: solid 2px rgb(50, 150, 50);
+            }
+
+            /*information*/
             #info {
                 float: left;
                 margin-left: 50px;
             }
         </style>
+        <script src="include.js"></script>
     </head>
 
     <body>
@@ -26,6 +42,7 @@
             <div id="cam-frame">
                 <p id="cam-load">Loading...</p>
                 <video autoplay playsinline id="cam-vid"></video>
+                <div id="cam-markings"></div>
             </div>
             <div id="info">
                 <p>Objects:</p>
