@@ -2,11 +2,20 @@
 
 <html lang="en">
     <head>
-        <title>Camera Test</title>
+        <title>Demo Test</title>
         <link rel="stylesheet" href="style.css">
         <style>
             #main {
-                margin: 50px 50px 50px 50px;
+                position: absolute;
+                top: 0px; left: 0px;
+                width: 90%; height: 90%;
+                margin: 5% 5% 5% 5%;
+            }
+
+            #canvas {
+                position: absolute;
+                width: 1280px; height: 720px;
+                border: solid 1px;
             }
         </style>
         <script src="include.js"></script>
@@ -14,7 +23,9 @@
 
     <body>
         <div id="main">
-            <canvas></canvas>
+            <canvas id="canvas" width="1280px" height="720px"></canvas>
         </div>
+
+        <script src="demo.js"></script>
     </body>
 </html>
