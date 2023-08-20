@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 function PaymentsPage() {
 
     return (
-       <div>
+       <div className='fade-in'>
 
         <text style={{
 

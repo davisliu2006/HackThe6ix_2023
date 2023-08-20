@@ -6,8 +6,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function BasicExample() {
   return (
     <Navbar expand="lg" className="navbar-dark" style={{
-        backgroundColor:"#3494f4"
-    }}>
+        backgroundColor:"#3494f4",
+        position: 'fixed',
+        top: '0',
+        width: '100%',
+        zIndex:'1'
+    }} >
       <Container>
         <Navbar.Brand href="/" style={{
             fontWeight:'bolder',

@@ -3,6 +3,7 @@ import Home from './Components/Home'
 import ContactsPage from './Components/ContactsPage';
 import PaymentsPage from './Components/PaymentsPage';
 import NavBar from '../src/Components/NavBar';
+import Section from './Components/Section';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -28,8 +29,11 @@ function App() {
           </Route>
         </Switch>
       </div>
+
       {/* <Home/> */}
     </div>
+
+    <Section/>
     </Router>
 
   );
