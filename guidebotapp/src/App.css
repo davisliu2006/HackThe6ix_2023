@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.fade-in {
+  font-family: Arial;
+  font-size: 150px;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#fade-in-nav {
+  font-family: Arial;
+  font-size: 150px;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
