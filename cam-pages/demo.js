@@ -118,7 +118,7 @@ function mark_walls() {
     for (let x = 0; x < SX; x++) {
         for (let y = 0; y < SY; y++) {
             if (map[x][y] == 1) {
-                draw_line(canvas_mp, x, y, x+0.5, y+0.5, "#000000");
+                draw_line(canvas_mp, x, y, x+0.5, y+0.5, "#000000", 1);
             }
         }
     }
