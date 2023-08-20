@@ -8,10 +8,13 @@ int dist_f, dist_l, dist_r;
 // FUNCTIONS
 
 // input
+int dist_map(int x) {
+  return x + (x == 0)*250;
+}
 void read_dist() {
-  dist_f = sonar_f.ping_cm();
-  dist_l = sonar_l.ping_cm();
-  dist_r = sonar_r.ping_cm();
+  dist_f = dist_map(sonar_f.ping_cm());
+  dist_l = dist_map(sonar_l.ping_cm());
+  dist_r = dist_map(sonar_r.ping_cm());
   Serial.println("Distance:");
   Serial.print(dist_l); Serial.print(" ");
   Serial.print(dist_f); Serial.print(" ");
@@ -46,7 +49,7 @@ void at_wall() {
     right_unwall();
   } else if (dist_l > WALL_DIST && dist_r > WALL_DIST) { // intersection
     at_intersection();
-  } else if (condition) { // dead end
+  } else if (dist_l <= WALL_DIST && dist_r <= WALL_DIST) { // dead end
     if (dist_l > dist_r) {
       left_unwall();
     } else {
@@ -66,18 +69,23 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
-    char input = Serial.read();
+    input = Serial.read();
+    Serial.println(input);
   }
   lmotor.set(1);
+  Serial.println("asdf");
 
   // read dist
   read_dist();
 
   // process dist
   if (dist_f <= WALL_DIST) {
-    alert.play(440);
+    // alert.play(440);
+    tone(10, 440);
     at_wall();
   } else {
-    alert.stop();
+    // alert.stop();
   }
+
+  delay(10);
 }
