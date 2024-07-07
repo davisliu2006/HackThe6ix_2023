@@ -1,4 +1,4 @@
-# HackThe6ix_2023 — GuideBot
+# HackThe6ix 2023 — GuideBot
 An intelligent navigation assistant that combats the challenges of visual impairment
 
 ## Inspiration
